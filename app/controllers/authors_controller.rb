@@ -1,9 +1,5 @@
 class AuthorsController < ApplicationController
 
-  def show
-    @author = Author.find(params[:id])
-  end
-
   def posts_index
     @author = Author.find(params[:id])
     @posts = @author.posts
@@ -17,6 +13,10 @@ class AuthorsController < ApplicationController
     # Post.find — no need for @author.posts.find...
     @post = Post.find(params[:post_id])
     render template: 'posts/show'
+  end
+
+  def show
+    @author = Author.find(params[:id])
   end
 
 end
